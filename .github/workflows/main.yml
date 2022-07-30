@@ -1,0 +1,34 @@
+name: Update inactive
+on:
+  push:
+    paths-ignore:
+    - '.github/**'
+    - 'lists/**'
+    - '*.txt'
+    - '*.yaml'
+    - '*.conf'
+    - '*.txt'
+    - 'README.md'
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build-blocklist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+
+      - name: Build blocklist
+        uses: actions/checkout@v3
+      - run: |
+          chmod +x ./nxdomainlist-aggregator.sh
+          ./nxdomainlist-aggregator.sh -o inactive.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "whitelist"
+          git push
