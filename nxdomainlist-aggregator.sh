@@ -473,7 +473,8 @@ fetch_domains_comments \
     "https://raw.githubusercontent.com/notracking/hosts-blocklists-scripts/master/domains.dead.txt" \
     "https://raw.githubusercontent.com/notracking/hosts-blocklists-scripts/master/hostnames.dead.txt" \
     "https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-domains-INACTIVE.txt" \
-    "https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/yoyo.org_domains/master/output/domains.list/domains/INACTIVE/list"
+    "https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/yoyo.org_domains/master/output/domains.list/domains/INACTIVE/list" \
+    "https://raw.githubusercontent.com/t0ny54/blocklist/main/domains-whitelist-local-additions.txt"
 
 sanitize_domain_list > "$OUT_FILE"
 
